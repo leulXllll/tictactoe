@@ -1,0 +1,21 @@
+*{
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+
+
+.boxes{
+
+  display: inline-grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows:  100px 100px 100px;
+  background-color: green;
+  gap: 7px;
+  padding: 10px;
+  
+  
+}
+li{
+  list-style-type: none;
+}

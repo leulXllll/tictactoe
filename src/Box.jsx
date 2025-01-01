@@ -1,6 +1,8 @@
-const Box = () => {
+import './Box.css';
+
+const Box = ({value}) => {
     return ( 
-        <div>Box</div>
+        <div className='box'>Box value is {value}</div>
      );
 }
  
