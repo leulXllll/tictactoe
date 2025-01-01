@@ -3,17 +3,17 @@
   box-sizing: border-box;
 }
 
-
+body{
+  background-color: rgb(24, 49, 83);
+}
 .boxes{
-
-  display: inline-grid;
-  grid-template-columns: 100px 100px 100px;
-  grid-template-rows:  100px 100px 100px;
-  background-color: green;
-  gap: 7px;
-  padding: 10px;
-  
-  
+    display: inline-grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows:  100px 100px 100px;
+    background-color: #74C0FC;
+    gap: 7px;
+    padding: 20px;
+    border-radius: 20px;
 }
 li{
   list-style-type: none;
