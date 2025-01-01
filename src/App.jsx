@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Box from './Box';
 import './App.css'
 
@@ -10,14 +10,19 @@ function App() {
 
   const [contents, setContents] = useState([1,2,3,4,5,6,7,8,9])
   
+  const [game , setGame] = useState([]);
 
+  const changeContent=(value)=>{
+
+      setGame(prev=>[...prev,value]);
+    }
 
   const renderBoxes = ()=>{
 
     return <ul className='boxes'>
              {contents.map((contents)=>
                 <li key={contents}>
-                    <Box value={contents}/>
+                    <Box value={contents} changeContent={changeContent}/>
                 </li>
              )}
            </ul>

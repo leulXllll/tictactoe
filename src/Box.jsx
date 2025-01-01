@@ -1,8 +1,9 @@
 import './Box.css';
 
-const Box = ({value}) => {
+const Box = ({value,changeContent}) => {
+
     return ( 
-        <div className='box'>Box value is {value}</div>
+        <div className='box' onClick={()=>changeContent(value)}>Box value is {value}</div>
      );
 }
  
