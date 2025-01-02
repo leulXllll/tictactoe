@@ -86,7 +86,6 @@ function App() {
     
     const renderBoxes = ()=>{
 
-
     return <ul className='boxes'>
              {contents.map((answer)=>
                 <li key={answer.number}>
@@ -98,7 +97,13 @@ function App() {
 
   return (
     <>
+       <div className="cont">
+
         {renderBoxes()}
+       </div>
+        {gameChanger&&<div  className='turn-Tracker' >Player 1's Turn</div>}
+        {!gameChanger&&<div className='turn-Tracker' >Player 2's Turn</div>}
+    
     </>
   )
 }
