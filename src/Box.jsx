@@ -6,7 +6,6 @@ import './Box.css';
 const Box = ({value,changeContent}) => {
 
     
-    console.log(value.status)
     return ( 
         <div className='box' onClick={()=>changeContent(value.number)}>
 
