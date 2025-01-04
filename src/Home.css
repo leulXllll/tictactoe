@@ -1,0 +1,47 @@
+.fa-shake{
+    animation-duration: 5s;
+}
+.fa-beat{
+    animation-duration: 5s;
+    scale: 1.01
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+
+}
+
+.homepage-cont{
+    display: flex;
+    height: 225px;
+    width: 275px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    /* background-color: green; */
+
+}
+
+#single-player,#two-player{
+    text-decoration: none;
+    /* margin-left: 3px; */
+    font-size: 1.3em;
+
+
+}
+.inside-cont{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    font-size: 1.3em;
+    background-color: rgb(41, 72, 116);
+    width: 230px;
+    padding: 10px;
+    height: 70px;
+    border-radius: 30px;
+}
+
+
