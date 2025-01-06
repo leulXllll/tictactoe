@@ -7,6 +7,36 @@ body{
   background-color: rgb(24, 49, 83);
 }
 
+.nav-ul{
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-decoration: none;
+  height: 100%;
+  
+}
+.links{
+  color: black;
+  font-weight: 600;
+  font-size: 1.3em;
+  text-decoration: none;
+  padding: 10px;
+  /* background-color: red; */
+}
+.links:hover{
+  background-color: rgb(24, 49, 83);
+  color: white;
+  border-radius: 15px;
+}
+
+
+nav{
+  height: 50px;
+  background-color:#74C0FC;
+  
+}
+
 .cont{
 
   display: flex;
@@ -38,4 +68,13 @@ li{
   font-size: 18px;
   text-decoration: underline;
   color: rgb(24, 49, 83);
+}
+h1{
+  margin: auto;
+  width: 60%;
+  background-color: white;
+  border-radius: 15px;
+}
+.navbar{
+
 }

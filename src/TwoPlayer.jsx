@@ -50,39 +50,36 @@ const TwoPlayer = ({answer}) => {
       
       let winner1 = false;
       let winner2 = false;
-      let draw = false;
-
+      
       for(let each of answer){
 
        let checkWinner1 = game1.includes(each[0]) && game1.includes(each[1]) && game1.includes(each[2]); 
 
        let checkWinner2 = game2.includes(each[0]) && game2.includes(each[1]) && game2.includes(each[2]);
        
-       let checkDraw1 = new Set(game1);
-       let checkDraw2 = new Set(game2);
        
-       let checkDraw = ((checkDraw1.size + checkDraw2.size)==9);
-
-        if(checkWinner1){
-          winner1 = true;
-          break;
-          
+       if(checkWinner1){
+         winner1 = true;
+         break;
+         
         }else if(checkWinner2){
           winner2 = true;
           break;    
-        }else if (checkDraw){
-          draw = true
-          break;
         }
         
       }
+      let checkDraw1 = new Set(game1);
+      let checkDraw2 = new Set(game2);
+      let checkDraw = ((checkDraw1.size + checkDraw2.size)==9);
+
       if(winner1){
         setGameResult("Player One Won");
       } else if(winner2){
         setGameResult("Player Two Won");
-      }else if(draw){
+      } else if (checkDraw){
         setGameResult("Its A Draw");
       }
+      
 
     } ,[game1,game2]);
 

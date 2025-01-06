@@ -5,21 +5,15 @@
     animation-duration: 5s;
     scale: 1.01
 }
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height:100vh;
 
-}
 
 .homepage-cont{
     display: flex;
-    height: 225px;
-    width: 275px;
+    height: 80vh;
+    width: 100%;
     align-items: center;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     /* background-color: green; */
 
 }
