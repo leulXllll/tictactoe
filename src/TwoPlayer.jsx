@@ -1,4 +1,6 @@
 import { useState,useEffect } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRefresh } from '@fortawesome/free-solid-svg-icons'; 
 import Box from "./Box";
 
 const TwoPlayer = ({answer}) => {
@@ -16,6 +18,12 @@ const TwoPlayer = ({answer}) => {
     const [game2,setGame2] = useState([]);    
 
     const [gameResult, setGameResult] = useState(null);
+
+    const [player1Score,setPlayer1Score] = useState(0);
+
+    const [player2Score,setPlayer2Score] = useState(0);
+
+    const [drawScore,setDrawScore] = useState(0);
 
   const changeContent=(value)=>{
 
@@ -73,11 +81,14 @@ const TwoPlayer = ({answer}) => {
       let checkDraw = ((checkDraw1.size + checkDraw2.size)==9);
 
       if(winner1){
-        setGameResult("Player One Won");
+        setGameResult("Player 1 Won");
+        setPlayer1Score(player1Score+1);
       } else if(winner2){
-        setGameResult("Player Two Won");
+        setGameResult("Player 2 Won");
+        setPlayer2Score(player2Score+1);
       } else if (checkDraw){
         setGameResult("Its A Draw");
+        setDrawScore(drawScore+1);
       }
       
 
@@ -111,7 +122,14 @@ const TwoPlayer = ({answer}) => {
 
   return (
     <>
-      {gameResult && <h1> {gameResult}</h1>}
+     <div className="score">
+            <div className="scores">Player 1's Score : {player1Score}</div>
+            <div className="scores">Player 2's Score : {player2Score}</div>
+            <div className="scores">Draw Score : {drawScore}</div>
+        </div>
+        <div className="status">
+          {gameResult && <h1> {gameResult}</h1>}
+        </div>
        <div className="cont">
 
            {renderBoxes()}
@@ -119,7 +137,9 @@ const TwoPlayer = ({answer}) => {
         {gameChanger&&<div  className='turn-Tracker' >Player 1's Turn</div>}
         {!gameChanger&&<div className='turn-Tracker' >Player 2's Turn</div>}
 
-        <div onClick={restartGame} className="restarter">Restart Game</div>
+        <div onClick={restartGame} className="restarter">
+             <FontAwesomeIcon icon={faRefresh} size="2x"></FontAwesomeIcon>
+         </div>
     
     </>
   )

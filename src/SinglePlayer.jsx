@@ -1,4 +1,6 @@
 import { useState ,useEffect} from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRefresh } from '@fortawesome/free-solid-svg-icons'; 
 import Box from "./Box";
 
 const SinglePlayer = ({answer}) => {
@@ -14,6 +16,12 @@ const SinglePlayer = ({answer}) => {
         const [computer,setComputer] = useState([]);    
     
         const [gameResult, setGameResult] = useState(null);
+
+        const [computerScore,setComputerScore] = useState(0);
+
+        const [playerScore,setPlayerScore] = useState(0);
+
+        const [drawScore,setDrawScore] = useState(0);
     
         function randomNumber(){
             return Math.floor(Math.random()*9)+1;
@@ -24,11 +32,6 @@ const SinglePlayer = ({answer}) => {
             if(gameResult!=null) return;
 
             let computerValue;
-
-            console.log(`game value is ${JSON.stringify(game1.length)}`);
-            console.log(`computer value is ${JSON.stringify(computer.length)}`);
-
-
 
             do{
                 
@@ -41,8 +44,6 @@ const SinglePlayer = ({answer}) => {
                 
                
             }while(computerValue==value || computer.includes(computerValue) || game1.includes(computerValue));
-            
-            
             
             if(!game1.includes(value) && !computer.includes(value) ){
                 
@@ -92,14 +93,17 @@ const SinglePlayer = ({answer}) => {
     
           if(winner1){
             setGameResult("You Won");
+            setPlayerScore(playerScore + 1);
           } else if(winner2){
             setGameResult("Computer  Won");
+            setComputerScore(computerScore + 1);
           } else if (checkDraw){
             setGameResult("Its A Draw");
+            setDrawScore(drawScore + 1);
           }
           
     
-        } ,[game1,computer]);
+        } ,[game1,computer]); 
     
         const restartGame = ()=>{
     
@@ -128,13 +132,23 @@ const SinglePlayer = ({answer}) => {
     
       return (
         <>
+        <div className="score">
+            <div className="scores">Player Score : {playerScore}</div>
+            <div className="scores">Computer Score : {computerScore}</div>
+            <div className="scores">Draw Score : {drawScore}</div>
+        </div>
+        <div className="status">
           {gameResult && <h1> {gameResult}</h1>}
+
+        </div>
            <div className="cont">
     
                {renderBoxes()}
            </div>
            
-            <div onClick={restartGame} className="restarter">Restart Game</div>
+            <div onClick={restartGame} className="restarter">
+                <FontAwesomeIcon icon={faRefresh} size="2x"></FontAwesomeIcon>
+            </div>
         
         </>
       )
